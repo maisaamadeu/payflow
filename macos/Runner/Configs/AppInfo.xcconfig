@@ -8,7 +8,7 @@
 PRODUCT_NAME = payflow
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.payflow
+PRODUCT_BUNDLE_IDENTIFIER = com.payflow.rocketseat
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2023 com.example. All rights reserved.
