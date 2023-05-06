@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:payflow/app_widget.dart';
-import 'package:payflow/modules/login/login_page.dart';
 import 'package:payflow/modules/splash/splash_page.dart';
 
 void main() {
@@ -36,7 +35,7 @@ class _AppFirebaseStateState extends State<AppFirebaseState> {
           return const AppWidget();
         } else {
           return const MaterialApp(
-            home: SplashScreen(),
+            home: SplashPage(),
           );
         }
       },

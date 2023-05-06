@@ -1,30 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:payflow/modules/home/home_page.dart';
 import 'package:payflow/modules/login/login_page.dart';
 import 'package:payflow/shared/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthController {
-  bool _isAuthenticated = false;
   UserModel? _user;
 
-  UserModel get user => _user!;
+  UserModel? get user => _user;
 
   void setUser(BuildContext context, UserModel? user) {
     if (user != null) {
       _user = user;
-      _isAuthenticated = true;
-      Navigator.push(
+      saveUser(user);
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const HomePage(),
+          builder: (context) => HomePage(),
         ),
       );
     } else {
       _user = null;
-      _isAuthenticated = false;
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => const LoginPage(),
@@ -41,6 +38,7 @@ class AuthController {
 
   Future<void> currentUser(BuildContext context) async {
     SharedPreferences instance = await SharedPreferences.getInstance();
+    await Future.delayed(Duration(seconds: 2));
     if (context.mounted) {
       if (instance.containsKey('user')) {
         String user = instance.get('user') as String;
