@@ -32,7 +32,7 @@ class _AppFirebaseStateState extends State<AppFirebaseState> {
             ),
           );
         } else if (snapshot.connectionState == ConnectionState.done) {
-          return const AppWidget();
+          return AppWidget();
         } else {
           return const MaterialApp(
             home: SplashPage(),

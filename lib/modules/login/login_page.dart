@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:payflow/modules/login/login_controller.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 import 'package:payflow/shared/themes/app_images.dart';
 import 'package:payflow/shared/themes/app_text_styles.dart';
-import 'package:payflow/shared/widgets/social_login_button.dart';
+import 'package:payflow/shared/widgets/social_login_button/social_login_button.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -12,7 +11,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final LoginController _loginController = LoginController();
+    final LoginController loginController = LoginController();
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -58,7 +57,7 @@ class LoginPage extends StatelessWidget {
                         const EdgeInsets.only(left: 40, right: 40, top: 40),
                     child: SocialLoginButton(
                       onTap: () {
-                        _loginController.googleSignIn(context);
+                        loginController.googleSignIn(context);
                       },
                     ),
                   ),

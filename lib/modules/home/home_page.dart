@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:payflow/modules/barcode_scanner/barcode_scanner_page.dart';
 import 'package:payflow/modules/home/home_controller.dart';
-import 'package:payflow/shared/auth/auth_controller.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 import 'package:payflow/shared/themes/app_text_styles.dart';
 
@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(152),
+        preferredSize: const Size.fromHeight(152),
         child: Container(
           height: 152,
           decoration: const BoxDecoration(
@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: pages[homeController.currentPage],
-      bottomNavigationBar: Container(
+      bottomNavigationBar: SizedBox(
         height: 90,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -83,7 +83,12 @@ class _HomePageState extends State<HomePage> {
             ),
             GestureDetector(
               onTap: () {
-                ;
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BarcodeScannerPage(),
+                  ),
+                );
               },
               child: Container(
                 height: 56,
@@ -92,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                   color: AppColors.primary,
                   borderRadius: BorderRadius.circular(5),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.add_box_outlined,
                   color: AppColors.background,
                   size: 36.0,

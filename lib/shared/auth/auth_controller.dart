@@ -16,7 +16,7 @@ class AuthController {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => HomePage(),
+          builder: (context) => const HomePage(),
         ),
       );
     } else {
@@ -38,7 +38,7 @@ class AuthController {
 
   Future<void> currentUser(BuildContext context) async {
     SharedPreferences instance = await SharedPreferences.getInstance();
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     if (context.mounted) {
       if (instance.containsKey('user')) {
         String user = instance.get('user') as String;
