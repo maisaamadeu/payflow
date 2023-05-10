@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
               },
               icon: Icon(
                 Icons.description_outlined,
-                color: homeController.currentPage == 2
+                color: homeController.currentPage == 1
                     ? AppColors.primary
                     : AppColors.body,
               ),
